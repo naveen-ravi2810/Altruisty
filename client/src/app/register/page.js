@@ -1,11 +1,30 @@
 'use client'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 const Register = () => {    
     const router = useRouter()
     const [userData, setuserData] = useState({})
+    const [IsLoading, setIsLoading] = useState(true)
+
+    async function check_token(){
+        const resp = await fetch('/api/token',{
+            method:'GET',
+            headers:{
+              'Authorization':`Bearer ${localStorage.getItem('token')}`
+            }
+          })
+          if(resp.ok){
+            router.replace('/dashboard')    
+          } else{
+            setIsLoading(false)      
+          }
+    }    
+
+    useEffect(()=>{
+        check_token()
+    },[])
     function onUserDataChange(event){
         setuserData({
             ...userData,
@@ -32,10 +51,15 @@ const Register = () => {
         } else{
             alert(data.message)
         }
-        
     }
+
+    if(IsLoading){
+        <div className='h-screen flex justify-center items-center text-4xl animate-ping'>Loading...</div>
+    }
+
   return (
     <div>
+        <Link href="/" className='uppercase flex justify-center pt-10 text-3xl font-bold'>altruisty</Link>
         <div>
             <form onSubmit={handleRegister}>
                 <h1>Register here</h1>
@@ -60,7 +84,7 @@ const Register = () => {
                     <input type='password' onChange={onUserDataChange} name='reenterpassword' required/>
                 </div>
                 <div>
-                    <input type='submit'/>
+                    <input type='submit' value="Register"/>
                 </div>
                 <div>
                     <Link href='/login'>Already Have an account</Link>

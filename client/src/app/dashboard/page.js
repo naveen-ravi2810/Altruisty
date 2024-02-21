@@ -1,4 +1,5 @@
 'use client'
+import Navbar from '@/components/Navbar'
 import React, { useState } from 'react'
 
 const Page = () => {
@@ -80,6 +81,7 @@ const Page = () => {
       
   return (
     <div>
+      <Navbar/>
         <div>
             <h1 className='flex justify-center'>Questions</h1>
             <form onSubmit={handlesubmit} className='py-10 px-5'>

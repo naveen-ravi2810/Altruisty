@@ -8,6 +8,7 @@ load_dotenv()
 class Settings(BaseSettings):
     app_title:str = "ALTRUISTY"
     app_description:str = "This is for a versioning Startups"
+    api_endpoint: str = '/api/v1'
     db_uri: str = os.getenv('sql_uri')
 
     jwt_key:str = "sffjbnfoibeiobf"

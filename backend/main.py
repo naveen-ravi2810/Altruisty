@@ -6,7 +6,7 @@ from core.settings import settings
 app = FastAPI(title=settings.app_title, description=settings.app_description)
 
 
-app.include_router(api)
+app.include_router(api, prefix=settings.api_endpoint)
 
 import uvicorn
 if __name__ == "__main__":

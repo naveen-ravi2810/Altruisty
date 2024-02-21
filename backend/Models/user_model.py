@@ -26,6 +26,7 @@ class UserLogin(UserBase):
 
 class UserRead(SQLModel):
     id:int
+    email: str
     email_verified: bool
     phone_verified: bool
     signed_up: datetime
