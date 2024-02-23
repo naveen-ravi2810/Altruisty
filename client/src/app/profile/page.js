@@ -87,6 +87,21 @@ const Profile = () => {
             <div>
                 <p className='capitalize'>{UserData.initial_score}</p>
             </div>
+            <div>
+                <label>Tests</label>
+            </div>
+            <div>
+                <p className='capitalize'>{UserData.scores && UserData['scores'].map((test, index)=>(
+                    <div key={index} className='flex gap-10'>
+                        <p>
+                            Date : {test.test_date}
+                        </p>
+                        <p>
+                            Score : {test.score}
+                        </p>
+                    </div>
+                ))}</p>
+            </div>
             </div>
         </div>
     </div>

@@ -52,7 +52,11 @@ const Login = () => {
         if (resp.ok){
             const data = await resp.json()
             localStorage.setItem('token',data.access_token)
-            router.replace('/dashboard')
+            if(data.is_first_login){
+                router.replace('/questions')
+            } else{
+                router.replace('/dashboard')
+            }
         } else{
             const data = await resp.json()
             toast.error(data.detail, {

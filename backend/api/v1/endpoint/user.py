@@ -17,7 +17,8 @@ def register_user(user_details: UserCreate, session:Session = Depends(get_sessio
 
 @router.post("/login")
 def login_user(user_details: UserLogin, session: Session = Depends(get_session)):
-    return {'status':True, 'access_token':authenticate_user(session=session, user_details=user_details)}
+    token, is_login_first = authenticate_user(session=session, user_details=user_details)
+    return {'status':True, 'access_token': token, 'is_first_login':is_login_first}
     
 
 @router.get("/profile", response_model=UserRead)

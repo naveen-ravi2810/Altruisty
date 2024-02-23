@@ -1,0 +1,164 @@
+{
+    "intents": [
+        {
+            "tag": "greeting",
+            "patterns": ["Hi there","Hey","Hola", "Hello", "Good day"],
+            "responses": ["Hello! What can I do for you?", "Hola! is there anything that I can help you with?", "Hi there, how can I help?"]
+        },
+        {
+            "tag": "idea_generation",
+            "patterns": ["How do I generate business ideas?", "Ways to come up with startup ideas", "I need help brainstorming ideas"],
+            "responses": ["Generating business ideas can be a creative process. Check out these resources to help you get started: [Link to Idea Generation Resources]"]
+        },
+        {
+            "tag": "proof_of_concept",
+            "patterns": ["What is a proof of concept?", "How to develop a proof of concept", "Why is a proof of concept important?"],
+            "responses": ["A proof of concept helps validate the feasibility of your business idea. Learn more about creating a proof of concept: [Link to Proof of Concept Guide]"]
+        },
+        {
+            "tag": "pitch_deck_creation",
+            "patterns": ["How to create a pitch deck?", "Elements of a successful pitch deck", "Pitch deck best practices"],
+            "responses": ["Crafting a compelling pitch deck is essential for attracting investors. Explore tips and examples for creating an effective pitch deck: [Link to Pitch Deck Creation Resources]"]
+        },
+        {
+            "tag": "prototype_development",
+            "patterns": ["What is prototype development?", "Steps to build a prototype", "Tools for prototyping"],
+            "responses": ["Building a prototype helps bring your idea to life. Discover resources and tools to guide you through the prototype development process: [Link to Prototype Development Resources]"]
+        },
+        {
+            "tag": "investment_acquisition",
+            "patterns": ["How to secure funding for my startup?", "Where to find investors", "Types of startup funding"],
+            "responses": ["Securing funding is crucial for startup growth. Explore different avenues for investment and funding opportunities: [Link to Investment Acquisition Resources]"]
+        },
+        {
+            "tag": "startup_guidance",
+            "patterns": ["What is a startup?", "How to start a startup", "Startup basics"],
+            "responses": ["Starting a startup can be challenging but rewarding. Learn about the fundamentals of starting and running a successful startup: [Link to Startup Guidance Resources]"]
+        },
+        {
+            "tag": "entrepreneurship",
+            "patterns": ["What is entrepreneurship?", "Entrepreneurship definition", "Characteristics of successful entrepreneurs"],
+            "responses": ["Entrepreneurship is about turning ideas into action. Explore the world of entrepreneurship and what it takes to succeed: [Link to Entrepreneurship Resources]"]
+        },
+        {
+            "tag": "idea_generation",
+            "patterns": ["How do I generate business ideas?", "Ways to come up with startup ideas", "I need help brainstorming ideas"],
+            "responses": ["Generating business ideas can be a creative process. Check out these resources to help you get started: [Link to Idea Generation Resources]"]
+        },
+        {
+            "tag": "proof_of_concept",
+            "patterns": ["What is a proof of concept?", "How to develop a proof of concept", "Why is a proof of concept important?"],
+            "responses": ["A proof of concept helps validate the feasibility of your business idea. Learn more about creating a proof of concept: [Link to Proof of Concept Guide]"]
+        },
+        {
+            "tag": "pitch_deck_creation",
+            "patterns": ["How to create a pitch deck?", "Elements of a successful pitch deck", "Pitch deck best practices"],
+            "responses": ["Crafting a compelling pitch deck is essential for attracting investors. Explore tips and examples for creating an effective pitch deck: [Link to Pitch Deck Creation Resources]"]
+        },
+        {
+            "tag": "prototype_development",
+            "patterns": ["What is prototype development?", "Steps to build a prototype", "Tools for prototyping"],
+            "responses": ["Building a prototype helps bring your idea to life. Discover resources and tools to guide you through the prototype development process: [Link to Prototype Development Resources]"]
+        },
+        {
+            "tag": "investment_acquisition",
+            "patterns": ["How to secure funding for my startup?", "Where to find investors", "Types of startup funding"],
+            "responses": ["Securing funding is crucial for startup growth. Explore different avenues for investment and funding opportunities: [Link to Investment Acquisition Resources]"]
+        },
+        {
+            "tag": "startup_guidance",
+            "patterns": ["What is a startup?", "How to start a startup", "Startup basics"],
+            "responses": ["Starting a startup can be challenging but rewarding. Learn about the fundamentals of starting and running a successful startup: [Link to Startup Guidance Resources]"]
+        },
+        {
+            "tag": "entrepreneurship",
+            "patterns": ["What is entrepreneurship?", "Entrepreneurship definition", "Characteristics of successful entrepreneurs"],
+            "responses": ["Entrepreneurship is about turning ideas into action. Explore the world of entrepreneurship and what it takes to succeed: [Link to Entrepreneurship Resources]"]
+        },
+        {
+            "tag": "market_research",
+            "patterns": ["How to conduct market research?", "Importance of market analysis", "Market research tools"],
+            "responses": ["Market research is crucial for understanding your target audience and competition. Explore strategies and tools for conducting effective market research: [Link to Market Research Resources]"]
+        },
+        {
+            "tag": "company_registration",
+            "patterns": ["Steps to register a company", "Legal requirements for business registration", "Registering a business name"],
+            "responses": ["Registering your company is an important step in establishing your business. Learn about the legal requirements and steps for company registration: [Link to Company Registration Guide]"]
+        },
+        {
+            "tag": "small_scale_implementation",
+            "patterns": ["How to implement a small-scale version of my product/service?", "Benefits of starting small", "Tips for small-scale implementation"],
+            "responses": ["Implementing your product/service on a small scale allows for testing and iteration. Discover strategies and tips for successful small-scale implementation: [Link to Small Scale Implementation Resources]"]
+        },
+        {
+            "tag": "customer_review_survey",
+            "patterns": ["Why are customer reviews important?", "How to conduct customer surveys", "Analyzing customer feedback"],
+            "responses": ["Customer reviews and surveys provide valuable insights into your product/service. Learn about the importance of customer feedback and how to conduct effective surveys: [Link to Customer Review and Survey Resources]"]
+        },
+        {
+            "tag": "update_changes_customer_review",
+            "patterns": ["How to incorporate customer feedback into my product/service?", "Adapting to customer needs", "Continuous improvement based on customer reviews"],
+            "responses": ["Updating your product/service based on customer feedback is key to staying competitive. Explore strategies for incorporating customer suggestions and making improvements: [Link to Customer Feedback Implementation Resources]"]
+        },
+        {
+            "tag": "investor_pitch_deck",
+            "patterns": ["What should I include in my investor pitch deck?", "Creating a compelling pitch for investors", "Pitch deck design tips"],
+            "responses": ["Your investor pitch deck is your chance to make a strong impression. Learn about the essential elements and design tips for creating a compelling pitch deck: [Link to Investor Pitch Deck Resources]"]
+        },
+        {
+            "tag": "funds_investment",
+            "patterns": ["Where can I find investors for my startup?", "Securing venture capital funding", "Applying for startup grants"],
+            "responses": ["Securing investment is essential for scaling your startup. Explore different funding options and strategies for attracting investors: [Link to Funds Investment Resources]"]
+        },
+        {
+            "tag": "business_plan",
+            "patterns": ["How to create a business plan?", "Importance of a business plan", "Components of a successful business plan"],
+            "responses": ["A well-crafted business plan is essential for guiding your startup's growth. Explore the importance of business plans and learn how to create one: [Link to Business Plan Resources]"]
+        },
+        {
+            "tag": "marketing_strategy",
+            "patterns": ["Developing a marketing strategy for my startup", "Effective marketing channels for startups", "Digital marketing tips"],
+            "responses": ["A solid marketing strategy is key to reaching your target audience and driving growth. Discover effective marketing strategies and channels for startups: [Link to Marketing Strategy Resources]"]
+        },
+        {
+            "tag": "branding_identity",
+            "patterns": ["Creating a strong brand identity", "Importance of branding for startups", "Branding mistakes to avoid"],
+            "responses": ["Building a strong brand identity helps differentiate your startup in the market. Learn about the importance of branding and how to create a memorable brand identity: [Link to Branding and Identity Resources]"]
+        },
+        {
+            "tag": "sales_strategies",
+            "patterns": ["Developing effective sales strategies", "Sales techniques for startups", "Closing deals with potential clients"],
+            "responses": ["Effective sales strategies are essential for driving revenue and growth. Explore proven sales techniques and strategies for startups: [Link to Sales Strategies Resources]"]
+        },
+        {
+            "tag": "networking",
+            "patterns": ["Importance of networking for startups", "Networking tips for entrepreneurs", "Building professional relationships"],
+            "responses": ["Networking is crucial for building connections and opportunities for your startup. Learn about the importance of networking and discover tips for effective networking: [Link to Networking Resources]"]
+        },
+        {
+            "tag": "leadership_skills",
+            "patterns": ["Developing leadership skills as an entrepreneur", "Leadership qualities for startup founders", "Effective leadership strategies"],
+            "responses": ["Strong leadership is essential for guiding your startup to success. Explore leadership qualities and strategies for entrepreneurs: [Link to Leadership Skills Resources]"]
+        },
+        {
+            "tag": "team_building",
+            "patterns": ["Building a strong team for my startup", "Recruiting top talent", "Team building activities"],
+            "responses": ["A strong team is the backbone of any successful startup. Discover tips for recruiting top talent and building a cohesive team: [Link to Team Building Resources]"]
+        },
+        {
+            "tag": "risk_management",
+            "patterns": ["Managing risks in startup ventures", "Identifying potential risks", "Risk mitigation strategies"],
+            "responses": ["Understanding and managing risks is essential for startup success. Learn about risk management strategies and how to mitigate potential risks: [Link to Risk Management Resources]"]
+        },
+        {
+            "tag": "scaling_up",
+            "patterns": ["Strategies for scaling up my startup", "Challenges of scaling a business", "Scaling without sacrificing quality"],
+            "responses": ["Scaling your startup requires careful planning and execution. Explore strategies and best practices for scaling your business while maintaining quality: [Link to Scaling Up Resources]"]
+        },
+        {
+            "tag": "exit_strategies",
+            "patterns": ["Planning exit strategies for startups", "Types of exit strategies", "Exiting a startup successfully"],
+            "responses": ["Planning exit strategies is important for every startup founder. Learn about different exit options and how to plan for a successful exit: [Link to Exit Strategies Resources]"]
+        }
+    ]
+}

@@ -7,7 +7,7 @@ const Navbar = () => {
 
   const router = useRouter()
   const [IsLoading, setIsLoading] = useState(true)
-  const [IsLoggedIn, setIsLoggedIn] = useState(true)
+  const [IsLoggedIn, setIsLoggedIn] = useState(false)
   async function validate_token(){
     const resp = await fetch('/api/token',{
       method:'GET',
@@ -16,21 +16,25 @@ const Navbar = () => {
       }
     })
     if(resp.ok){
-      setIsLoading(false)      
+      setIsLoading(false)   
+      setIsLoggedIn(true)
     } else{
       router.replace("/")
-      setIsLoading(false)      
-      setIsLoggedIn(false)
-    }
+    }    
   }
 
   useEffect(()=>{
-    validate_token()
+    if(localStorage.getItem('token')){
+      validate_token()
+    }
+    setIsLoggedIn(false)
+    setIsLoading(false)  
   },[])
 
   function handleLogout(){
     localStorage.removeItem('token')
     router.replace('/')
+    setIsLoggedIn(false)
   }
 
   if(IsLoading){

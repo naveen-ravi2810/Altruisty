@@ -24,7 +24,7 @@ def authenticate_user(user_details:UserLogin, session:Session):
         if bcrypt.checkpw(user_details.password.encode('utf-8'), result.password.encode('utf-8')):
             token = create_access_token(user=result)
             r_conn.setex(name=f"access_token:{result.email}", value=token, time=24*60*60) 
-            return token
+            return token, result.is_first_login
         raise HTTPException(status_code=401, detail="Invalid UserName/Password")
     except Exception as e:
         raise  HTTPException(status_code=401, detail="Invalid UserName/Password")
@@ -33,6 +33,18 @@ def authenticate_user(user_details:UserLogin, session:Session):
 def get_profile_by_id(id: int, session: Session):
     try:
         statement = select(User).where(User.id == id)
-        return session.exec(statement).one()
+        result = session.exec(statement).one()
+        return result
     except:
         raise HTTPException(status_code=404, detail=f"No user Found")
+    
+def update_login_status_of_user(id: int, session: Session):
+    try:
+        statement = select(User).where(User.id == id)
+        user = session.exec(statement).one()
+        user.is_first_login = False
+        session.add(user)
+        session.commit()
+        return user
+    except:
+        raise HTTPException(status_code=400, detail="User details cant updated")

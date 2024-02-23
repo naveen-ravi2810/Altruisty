@@ -20,6 +20,7 @@ class User(UserCreate, table=True):
     phone_verified: bool = Field(default=False)
     signed_up: datetime = Field(default_factory=datetime.utcnow)
     initial_score: float = Field(default=0)
+    is_first_login: bool = Field(default=True)
     scores : List["Score"] = Relationship(back_populates="user")
     companies: "Company" = Relationship(back_populates="owner")
 
@@ -36,4 +37,7 @@ class UserRead(SQLModel):
     initial_score: float
     user_name : str
     phone: int
+    is_first_login: bool
+    scores: List
+
     
