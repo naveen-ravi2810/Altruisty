@@ -2,7 +2,8 @@
 import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const Login = () => {
@@ -20,12 +21,15 @@ const Login = () => {
           if(resp.ok){
             router.replace('/dashboard')    
           } else{
-            setIsLoading(false)      
+            setIsLoading(false) 
+            localStorage.removeItem('token')     
           }
     }    
 
     useEffect(()=>{
-        check_token()
+        if(localStorage.getItem('token')){
+            check_token()
+        }
     },[])
 
     function onUserUpdate(event){
@@ -45,12 +49,22 @@ const Login = () => {
             },
             body:JSON.stringify(UserData)
         })
-        const data = await resp.json()
-        if (data.status){
+        if (resp.ok){
+            const data = await resp.json()
             localStorage.setItem('token',data.access_token)
             router.replace('/dashboard')
         } else{
-            alert(data.message)
+            const data = await resp.json()
+            toast.error(data.detail, {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+                });
         }
     }
 
@@ -60,6 +74,18 @@ const Login = () => {
 
   return (
     <div>
+        <ToastContainer
+position="top-center"
+autoClose={5000}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+theme="light"
+/>
         <Link href="/" className='uppercase flex justify-center pt-10 text-3xl font-bold'>altruisty</Link>
         <div className='h-screen justify-center items-center flex'>
             <form onSubmit={handleLogin} className='p-4 border-gray-500 border-[1px]'>

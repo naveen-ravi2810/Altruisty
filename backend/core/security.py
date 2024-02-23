@@ -4,6 +4,7 @@ import jwt
 from core.settings import settings
 from Models.user_model import User
 from datetime import datetime, timedelta
+from core.db import r_conn
 
 auth_scheme = HTTPBearer()
 
@@ -22,6 +23,20 @@ def decode_jwt(token):
 async def validate_authenticated_user_token(token: HTTPAuthorizationCredentials = Depends(auth_scheme)) -> int:
     try:
         data = decode_jwt(token.credentials)
-        return data['id']
+        exist_token = r_conn.get(name=f"access_token:{data['email']}").decode('utf-8')
+        if exist_token == token.credentials:
+            return data['id']
+        raise ValueError("Old/ Invalid Token")
     except Exception as e:
-        raise HTTPException(status_code=401, detail=f"UnAuthorized")
+        raise HTTPException(status_code=401, detail=f"{e}")
+    
+async def get_token_details(token: HTTPAuthorizationCredentials = Depends(auth_scheme)):
+    try:
+        data = decode_jwt(token.credentials)
+        exist_token = r_conn.get(name=f"access_token:{data['email']}").decode('utf-8')
+        if exist_token == token.credentials:
+            return data
+        raise ValueError("Old/ Invalid Token")
+    except Exception as e:
+        raise HTTPException(status_code=401, detail=f"{e}")
+    

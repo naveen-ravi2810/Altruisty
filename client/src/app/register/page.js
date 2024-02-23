@@ -18,12 +18,15 @@ const Register = () => {
           if(resp.ok){
             router.replace('/dashboard')    
           } else{
+            localStorage.removeItem('token')
             setIsLoading(false)      
           }
     }    
 
     useEffect(()=>{
-        check_token()
+        if (localStorage.getItem('token')){
+            check_token()
+        }
     },[])
     function onUserDataChange(event){
         setuserData({
@@ -61,33 +64,35 @@ const Register = () => {
     <div>
         <Link href="/" className='uppercase flex justify-center pt-10 text-3xl font-bold'>altruisty</Link>
         <div>
-            <form onSubmit={handleRegister}>
-                <h1>Register here</h1>
-                <div>
-                    <label>Name</label>
-                    <input type='text' onChange={onUserDataChange} name='user_name' required/>
-                </div>
-                <div>
-                    <label>Email</label>
-                    <input type='email' onChange={onUserDataChange} name='email' required/>
-                </div>
-                <div>
-                    <label>Phone</label>
-                    <input type='tel' onChange={onUserDataChange} name='phone' required/>
-                </div>
-                <div>
-                    <label>Password</label>
-                    <input type='password' onChange={onUserDataChange} name='password' required/>
-                </div>
-                <div>
-                    <label>Password</label>
-                    <input type='password' onChange={onUserDataChange} name='reenterpassword' required/>
-                </div>
-                <div>
-                    <input type='submit' value="Register"/>
-                </div>
-                <div>
-                    <Link href='/login'>Already Have an account</Link>
+            <form onSubmit={handleRegister} className='flex justify-center items-center h-screen'>
+                <div className='text-xl border-[1px] border-gray-500 p-2'>
+                    <h1 className='flex justify-center text-4xl'>Register here</h1>
+                    <div className='py-2 flex gap-3'>
+                        <label>Name</label>
+                        <input className='p-1 border-[1px] border-gray-500 outline-none' type='text' onChange={onUserDataChange} name='user_name' required/>
+                    </div>
+                    <div className='py-2 flex gap-3'>
+                        <label>Email</label>
+                        <input className='p-1 border-[1px] border-gray-500 outline-none' type='email' onChange={onUserDataChange} name='email' required/>
+                    </div>
+                    <div className='py-2 flex gap-3'>
+                        <label>Phone</label>
+                        <input className='p-1 border-[1px] border-gray-500 outline-none' type='tel' onChange={onUserDataChange} name='phone' required/>
+                    </div>
+                    <div className='py-2 flex gap-3'>
+                        <label>Password</label>
+                        <input className='p-1 border-[1px] border-gray-500 outline-none' type='password' onChange={onUserDataChange} name='password' required/>
+                    </div>
+                    <div className='py-2 flex gap-3'>
+                        <label>Password</label>
+                        <input className='p-1 border-[1px] border-gray-500 outline-none' type='password' onChange={onUserDataChange} name='reenterpassword' required/>
+                    </div>
+                    <div>
+                        <input type='submit' value="Register"/>
+                    </div>
+                    <div>
+                        <Link className='text-sm text-blue-600' href='/login'>Already Have an account</Link>
+                    </div>    
                 </div>
             </form>
         </div>

@@ -1,5 +1,6 @@
 'use client'
 import Navbar from '@/components/Navbar'
+import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
 
@@ -54,7 +55,7 @@ const Profile = () => {
                 <label>Email</label>
             </div>
             <div>
-                <p className='capitalize'>{UserData.email}</p>
+                <p className=''>{UserData.email}</p>
             </div>
             <div>
                 <label>Phone</label>
@@ -72,7 +73,7 @@ const Profile = () => {
                 <label>Email Verified</label>
             </div>
             <div>
-                <p className='capitalize'>{UserData.email_verified ? 'Verified' : 'Not Verified'}</p>
+                <p className='capitalize'>{UserData.email_verified ? <p>Verified</p> : <p>Not Verified <Link href='/email_otp'>Click To verify</Link></p>}</p>
             </div>
             <div>
                 <label>Phone Verified</label>

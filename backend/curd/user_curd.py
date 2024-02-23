@@ -1,3 +1,4 @@
+from core.db import r_conn
 from Models.user_model import UserCreate, User, UserLogin
 from sqlmodel import Session, select
 import bcrypt
@@ -21,7 +22,9 @@ def authenticate_user(user_details:UserLogin, session:Session):
         statement = select(User).where(User.email == user_details.email)
         result = session.exec(statement).one()
         if bcrypt.checkpw(user_details.password.encode('utf-8'), result.password.encode('utf-8')):
-            return create_access_token(user=result)
+            token = create_access_token(user=result)
+            r_conn.setex(name=f"access_token:{result.email}", value=token, time=24*60*60) 
+            return token
         raise HTTPException(status_code=401, detail="Invalid UserName/Password")
     except Exception as e:
         raise  HTTPException(status_code=401, detail="Invalid UserName/Password")

@@ -1,8 +1,8 @@
 from fastapi import APIRouter, Depends
-from core.security import validate_authenticated_user_token
+from core.security import get_token_details
 
 router = APIRouter()
 
 @router.get("/token")
-def check_token(token_id:int = Depends(validate_authenticated_user_token)):
-    return {'status':True}
+def check_token(token:int = Depends(get_token_details)):
+    return {'status':token}

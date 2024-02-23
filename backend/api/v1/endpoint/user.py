@@ -5,7 +5,7 @@ from Models.user_model import UserCreate, UserLogin, UserRead
 from curd.user_curd import create_user, authenticate_user, get_profile_by_id
 from sqlmodel  import Session
 from core.security import validate_authenticated_user_token
-import time
+
 
 router = APIRouter()
 

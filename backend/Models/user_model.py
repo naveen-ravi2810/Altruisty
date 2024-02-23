@@ -1,5 +1,6 @@
-from sqlmodel import SQLModel, Field
+from sqlmodel import SQLModel, Field, Relationship
 from datetime import datetime
+from typing import List
 
 
 class UserBase(SQLModel):
@@ -19,6 +20,8 @@ class User(UserCreate, table=True):
     phone_verified: bool = Field(default=False)
     signed_up: datetime = Field(default_factory=datetime.utcnow)
     initial_score: float = Field(default=0)
+    scores : List["Score"] = Relationship(back_populates="user")
+    companies: "Company" = Relationship(back_populates="owner")
 
 class UserLogin(UserBase):
     pass
