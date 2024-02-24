@@ -27,7 +27,7 @@ const Register = () => {
         if (localStorage.getItem('token')){
             check_token()
         }
-    },[])
+    },[check_token])
     function onUserDataChange(event){
         setuserData({
             ...userData,

@@ -29,7 +29,7 @@ const Profile = () => {
 
     useEffect(()=>{
         fetchUserData()
-    },[])
+    },[fetchUserData])
     if(IsLoading){
         return(
             <div>

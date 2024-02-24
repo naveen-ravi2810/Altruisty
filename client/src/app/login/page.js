@@ -30,7 +30,7 @@ const Login = () => {
         if(localStorage.getItem('token')){
             check_token()
         }
-    },[])
+    },[check_token])
 
     function onUserUpdate(event){
         setUserData({

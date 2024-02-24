@@ -35,7 +35,7 @@ const EmailOTP = () => {
         const resp = await fetch(`/api/verifyemail?otp=${OTP}`,{
             method:'GET',
             headers:{
-                'Authorization': `Bearer ${localStorage.setItem('token')}`
+                'Authorization': `Bearer ${localStorage.getItem('token')}`
             },
             
         })
