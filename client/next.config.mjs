@@ -1,12 +1,15 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {reactStrictMode:false,
+// next.config.js
+const nextConfig = {
+    reactStrictMode: false,
     rewrites: async () => {
-    return [
-    {
-        source: '/api/:path*',
-        destination: 'http://127.0.0.1:8000/api/v1/:path*'
+      return [
+        {
+          source: '/api/:path*',
+          destination: `${process.env.API_BASE_URL}/:path*`,
+        },
+      ];
     },
-    ]
-},};
-
-export default nextConfig;
+  };
+  
+  export default nextConfig;
+  
