@@ -29,6 +29,8 @@ const Login = () => {
     useEffect(()=>{
         if(localStorage.getItem('token')){
             check_token()
+        }else{
+            setIsLoading(false)
         }
     },[check_token])
 
@@ -53,7 +55,7 @@ const Login = () => {
             const data = await resp.json()
             localStorage.setItem('token',data.access_token)
             if(data.is_first_login){
-                router.replace('/questions')
+                router.replace('/company_info')
             } else{
                 router.replace('/dashboard')
             }

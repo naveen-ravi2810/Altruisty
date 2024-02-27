@@ -24,5 +24,10 @@ class Settings(BaseSettings):
     smtp_email: str = os.getenv("smtp_email")
     smtp_password: str = os.getenv("smtp_password")
 
+    aws_access_key: str = os.getenv("aws_access_key")
+    aws_secret_key: str = os.getenv("aws_secret_key")
+    aws_bucket_name: str = os.getenv("buker_name", 'altruisty')
+    user_profile_bucket: str = os.getenv('user_profile_bucket','user_profile')
+    company_profile_bucket: str = os.getenv('company_profile_bucket','Company_profile')
 
 settings = Settings()

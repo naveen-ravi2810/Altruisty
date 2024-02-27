@@ -40,7 +40,7 @@ const EmailOTP = () => {
             
         })
         if(resp.ok){
-            router.replace('/profile')
+            router.replace('/dashboard')
         } else{
             const data = await resp.json()
             alert(data.detail)

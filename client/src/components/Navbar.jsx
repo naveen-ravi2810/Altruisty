@@ -26,9 +26,10 @@ const Navbar = () => {
   useEffect(()=>{
     if(localStorage.getItem('token')){
       validate_token()
+    } else{
+      setIsLoggedIn(false)
+      setIsLoading(false)  
     }
-    setIsLoggedIn(false)
-    setIsLoading(false)  
   },[])
 
   function handleLogout(){
@@ -66,8 +67,6 @@ const Navbar = () => {
     <div className='flex justify-between px-20 py-10 border-b-[1px] border-black'>
         <Link href="/" className='uppercase text-3xl'>altruisty</Link>
         <div className='flex gap-10 items-center'>
-          <Link href='/dashboard'>Dashboard</Link>
-          <Link href='/profile'>Profile</Link>
           <button onClick={()=>handleLogout()}>Logout</button>
         </div>
     </div>

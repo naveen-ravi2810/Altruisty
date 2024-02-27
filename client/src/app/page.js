@@ -6,7 +6,7 @@ export default function Home() {
     <main className="h-screen">
       <Navbar/>
       <div className="h-96 flex justify-center items-center">
-        <p className="text-center text-3xl ">GET BUILD YOUR FUTURE HERE @ ALTRUISTY</p>
+        <p className="text-center text-3xl uppercasek">Develop Your Idea with ALTRUISTY</p>
       </div>
       <div className="flex justify-center gap-20">
         <Link className="p-2 bg-green-300 hover:bg-green-500 rounded-2xl" href='/login'>Login</Link>

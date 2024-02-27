@@ -33,7 +33,7 @@
         {
             "tag": "startup_guidance",
             "patterns": ["What is a startup?", "How to start a startup", "Startup basics"],
-            "responses": ["Starting a startup can be challenging but rewarding. Learn about the fundamentals of starting and running a successful startup: [Link to Startup Guidance Resources]"]
+            "responses": ["Starting a startup can be challenging but rewarding. Learn about the fundamentals of starting and running a successful startup: https://youtu.be/Th8JoIan4dg?si=0cVwjIld2pbKOZef"]
         },
         {
             "tag": "entrepreneurship",

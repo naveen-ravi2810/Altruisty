@@ -1,6 +1,6 @@
 'use client'
 import { useRouter } from 'next/navigation'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 const Question = () => {
   const router = useRouter()
@@ -164,13 +164,28 @@ const Question = () => {
         })
         const data = await resp.json()
         if (resp.ok){
-          router.replace('/profile')
+          router.replace('/dashboard')
         } else{
           alert("Error")
         }
       }
 
-      console.log(Answers)
+      const [isLoading, setisLoading] = useState(true)
+
+      useEffect(()=>{
+        fetch("/api/token",{
+          method:'GET',
+          headers:{
+            'Authorization':`Bearer ${localStorage.getItem("token")}`
+          }
+        }).then((resp)=>{
+          if(resp.ok){
+            setisLoading(false)
+          }else{
+            router.replace('/login')
+          }
+        })
+      },[])
       
   return (
     <div>
