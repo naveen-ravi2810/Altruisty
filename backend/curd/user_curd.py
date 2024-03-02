@@ -4,7 +4,7 @@ from sqlmodel import Session, select
 import bcrypt
 from core.security import create_access_token
 from fastapi import HTTPException, UploadFile
-from core.db import r_conn
+# from core.db import r_conn
 from utils.s3 import upload_user_photo_to_s3
 
 def create_user(user_details:UserCreate, session:Session):
@@ -26,7 +26,7 @@ def authenticate_user(user_details:UserLogin, session:Session):
         result = session.exec(statement).one()
         if bcrypt.checkpw(user_details.password.encode('utf-8'), result.password.encode('utf-8')):
             token = create_access_token(user=result)
-            r_conn.setex(name=f"access_token:{result.id}", value=token, time=24*60*60) 
+            # r_conn.setex(name=f"access_token:{result.id}", value=token, time=24*60*60) 
             return token, result.is_first_login
         raise HTTPException(status_code=401, detail="Invalid UserName/Password")
     except Exception as e:

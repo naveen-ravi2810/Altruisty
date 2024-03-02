@@ -11,9 +11,9 @@ class Settings(BaseSettings):
     api_endpoint: str = '/api/v1'
 
     db_uri: str = os.getenv('sql_uri')
-    redis_host: str = os.getenv('redis_host')
-    redis_port: str = os.getenv('redis_port')
-    redis_db: int = os.getenv('redis_db')
+    # redis_host: str = os.getenv('redis_host')
+    # redis_port: str = os.getenv('redis_port')
+    # redis_db: int = os.getenv('redis_db')
 
     jwt_key:str = "sffjbnfoibeiobf"
     jwt_algorithm:str = "HS256"
