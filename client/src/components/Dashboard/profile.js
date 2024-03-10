@@ -135,7 +135,7 @@ const Profile = () => {
                             Date : {test.test_date}
                         </p>
                         <p>
-                            Stage : <span className='font-bold'>{test.score}</span>
+                            Stage : <span className='font-bold'>{test.score > 15 ? <p>Max Level</p>:<p>{test.score}</p>}</span>
                         </p>
                     </div>
                 ))}</p>

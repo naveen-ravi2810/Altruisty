@@ -21,6 +21,9 @@ def decode_jwt(token):
     
 
 async def validate_authenticated_user_token(token: HTTPAuthorizationCredentials = Depends(auth_scheme)) -> int:
+    '''
+    Return only the ID of the user by the token
+    '''
     try:
         data = decode_jwt(token.credentials)
         r_token = r_conn.get(name=f"access_token:{data['id']}")
@@ -35,6 +38,9 @@ async def validate_authenticated_user_token(token: HTTPAuthorizationCredentials 
         raise HTTPException(status_code=401, detail=f"{e}")
     
 async def get_token_details(token: HTTPAuthorizationCredentials = Depends(auth_scheme)):
+    '''
+    return full data the user by the given token 
+    '''
     try:
         data = decode_jwt(token.credentials)
         exist_token = r_conn.get(name=f"access_token:{data['id']}").decode('utf-8')
